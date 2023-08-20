@@ -28,7 +28,7 @@ while True:                # forever
     elif data.find("/")>=0:
       numeros = data.split('/')
     else:
-      print("\nEntrada invalida.")
+      print("\nEntrada inválida.")
       conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
       continue
     
@@ -43,7 +43,7 @@ while True:                # forever
             try:
                 primeiro_numero = float(primeiro_numero.replace(",", "."))
             except ValueError:
-                print("\nEntrada invalida.")
+                print("\nEntrada inválida.")
                 conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
                 continue
       
@@ -56,11 +56,11 @@ while True:                # forever
             try:
                 segundo_numero = float(segundo_numero.replace(",", "."))
             except ValueError:
-                print("\nEntrada invalida.")
+                print("\nEntrada inválida.")
                 conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
                 continue
               
-    print("\nEntrada valida. Processando...")
+    print("\nEntrada válida. Processando...")
     if data.find("+")>=0:
       print("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero))
       conn.send(str.encode("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero)))
