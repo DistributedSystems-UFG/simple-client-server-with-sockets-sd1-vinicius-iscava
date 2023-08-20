@@ -1,14 +1,14 @@
 from socket  import *
 from constCS import * #-
 
+print("Iniciando...")
 s = socket(AF_INET, SOCK_STREAM) 
 s.bind((HOST, PORT))  #-
 s.listen(1)           #-
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 
 # Serviço para calculadora simples
-print("\Iniciando...")
-conn.send(str.encode("\nCalculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente.\n\nDigite \"exit\" para encerrar."))
+conn.send(str.encode("\nCalculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente ou digite \"exit\" para encerrar."))
 
 # Loop para interação entre client e server. Servidor irá parar apenas se o client enviar a mensagem "exit".
 while True:                # forever
@@ -62,16 +62,16 @@ while True:                # forever
               
     print("Entrada valida. Processando...")
     if data.find("+")>=0:
-      print("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))
+      print("\n" + primeiro_numero + " + " + segundo_numero + " = " + str(primeiro_numero+segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " + " + segundo_numero + " = " + str(primeiro_numero+segundo_numero)))
     elif data.find("-")>=0:
-      print("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))
+      print("\n" + primeiro_numero + " - " + segundo_numero + " = " + str(primeiro_numero-segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " - " + segundo_numero + " = " + str(primeiro_numero-segundo_numero)))
     elif data.find("*")>=0:
-      print("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))
+      print("\n" + primeiro_numero + " * " + segundo_numero + " = " + str(primeiro_numero*segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " * " + segundo_numero + " = " + str(primeiro_numero*segundo_numero)))
     elif data.find("/")>=0:
-      print("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))
+      print("\n" + primeiro_numero + " / " + segundo_numero + " = " + str(primeiro_numero/segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " / " + segundo_numero + " = " + str(primeiro_numero/segundo_numero)))
 
 conn.close()               # close the connection
