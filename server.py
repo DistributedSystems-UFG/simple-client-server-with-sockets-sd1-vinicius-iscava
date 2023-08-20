@@ -14,7 +14,7 @@ while True:                # forever
   data = conn.recv(1024)   # receive data from client
   if data == "exit":
     conn.send(str.encode("exit"))
-    print("\nDesligando...")
+    print("\nEncerrando...")
     break       # stop if client stopped
   else:
     if data.find("+")>=0:
