@@ -7,12 +7,15 @@ s.listen(1)           #-
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 
 # Serviço para calculadora simples
-conn.send(str.encode("Calculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente.\n\nDigite \"exit\" para encerrar."))
+conn.send(str.encode("\nCalculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente.\n\nDigite \"exit\" para encerrar."))
 
 # Loop para interação entre client e server. Servidor irá parar apenas se o client enviar a mensagem "exit".
 while True:                # forever
   data = conn.recv(1024)   # receive data from client
-  if data == "exit": break       # stop if client stopped
+  if data == "exit":
+    conn.send(str.encode("exit"))
+    print("\nDesligando...")
+    break       # stop if client stopped
   else:
     if data.find("+")>=0:
       numeros = data.split('+')
