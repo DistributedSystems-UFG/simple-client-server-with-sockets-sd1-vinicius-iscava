@@ -10,7 +10,7 @@ while True:
   operacao = input("\n\nDigite a operação: ")
   s.send(str.encode(operacao))  # send some data
   data = s.recv(1024)     # receive the response
-  if data=="exit" | operacao=="exit":
+  if bytes.decode(data)=="exit" or operacao=="exit":
     print ("Encerrando...")
     break
   else:
