@@ -7,7 +7,7 @@ s.listen(1)           #-
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 
 # Serviço para calculadora simples
-conn.send(str.encode(bytes.decode("Calculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente.\n\nDigite \"exit\" para encerrar.")))
+conn.send(str.encode("Calculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente.\n\nDigite \"exit\" para encerrar."))
 
 # Loop para interação entre client e server. Servidor irá parar apenas se o client enviar a mensagem "exit".
 while True:                # forever
@@ -23,8 +23,8 @@ while True:                # forever
     elif data.find("/">=0):
       numeros = data.split('/')
     else:
-      print(bytes.decode("\nEntrada invalida."))
-      conn.send(str.encode(bytes.decode("\nEntrada inválida. Tente novamente!")))
+      print("\nEntrada invalida.")
+      conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
       continue
     
     primeiro_numero = numeros[0].strip()
@@ -38,8 +38,8 @@ while True:                # forever
             try:
                 primeiro_numero = float(primeiro_numero.replace(",", "."))
             except ValueError:
-                print(bytes.decode("\nEntrada invalida."))
-                conn.send(str.encode(bytes.decode("\nEntrada inválida. Tenten novamente!")))
+                print("\nEntrada invalida.")
+                conn.send(str.encode("\nEntrada inválida. Tenten novamente!"))
                 continue
       
     try:
@@ -51,22 +51,22 @@ while True:                # forever
             try:
                 segundo_numero = float(segundo_numero.replace(",", "."))
             except ValueError:
-                print(bytes.decode("\nEntrada invalida."))
-                conn.send(str.encode(bytes.decode("\nEntrada invalida. Tente novamente!")))
+                print("\nEntrada invalida.")
+                conn.send(str.encode("\nEntrada invalida. Tente novamente!"))
                 continue
               
-    print(bytes.decode("Entrada valida. Processando..."))
+    print("Entrada valida. Processando...")
     if data.find("+">=0):
-      print(bytes.decode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))
-      conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))) 
+      print("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))
     elif data.find("-">=0):
-      print(bytes.decode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))
-      conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))) 
+      print("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))
     elif data.find("*">=0):
-      print(bytes.decode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))
-      conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))) 
+      print("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))
     elif data.find("/">=0):
-      print(bytes.decode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))
-      conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))) 
+      print("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero))
+      conn.send(str.encode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))
 
 conn.close()               # close the connection
