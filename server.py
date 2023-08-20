@@ -14,15 +14,15 @@ while True:                # forever
   data = conn.recv(1024)   # receive data from client
   if data == "exit": break       # stop if client stopped
   else:
-    if (data.find("+">=0)):
+    if data.find("+">=0):
       numeros = data.split('+')
-    else if (data.find("-">=0)):
+    elif data.find("-">=0):
       numeros = data.split('-')
-    else if (data.find("*">=0)):
+    elif data.find("*">=0):
       numeros = data.split('*')
-    else if (data.find("/">=0)):
+    elif data.find("/">=0):
       numeros = data.split('/')
-    else
+    else:
       print(bytes.decode("\nEntrada invalida."))
       conn.send(str.encode(bytes.decode("\nEntrada inválida. Tente novamente!")))
       continue
@@ -56,16 +56,16 @@ while True:                # forever
                 continue
               
     print(bytes.decode("Entrada valida. Processando..."))
-    if (data.find("+">=0)):
+    if data.find("+">=0):
       print(bytes.decode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))
       conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))) 
-    else if (data.find("-">=0)):
+    elif data.find("-">=0):
       print(bytes.decode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))
       conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))) 
-    else if (data.find("*">=0)):
+    elif data.find("*">=0):
       print(bytes.decode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))
       conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))) 
-    else if (data.find("/">=0)):
+    elif data.find("/">=0):
       print(bytes.decode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))
       conn.send(str.encode(bytes.decode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))) 
 
