@@ -62,19 +62,19 @@ while True:                # forever
               
     print("Entrada valida. Processando...")
     if data.find("+")>=0:
-      print("\n" + primeiro_numero + " + " + segundo_numero + " = " + str(primeiro_numero+segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " + " + segundo_numero + " = " + str(primeiro_numero+segundo_numero)))
+      print("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero))
+      conn.send(str.encode("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero)))
     elif data.find("-")>=0:
-      print("\n" + primeiro_numero + " - " + segundo_numero + " = " + str(primeiro_numero-segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " - " + segundo_numero + " = " + str(primeiro_numero-segundo_numero)))
+      print("\n" + str(primeiro_numero) + " - " + str(segundo_numero) + " = " + str(primeiro_numero-segundo_numero))
+      conn.send(str.encode("\n" + str(primeiro_numero) + " - " + str(segundo_numero) + " = " + str(primeiro_numero-segundo_numero)))
     elif data.find("*")>=0:
-      print("\n" + primeiro_numero + " * " + segundo_numero + " = " + str(primeiro_numero*segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " * " + segundo_numero + " = " + str(primeiro_numero*segundo_numero)))
+      print("\n" + str(primeiro_numero) + " * " + str(segundo_numero) + " = " + str(primeiro_numero*segundo_numero))
+      conn.send(str.encode("\n" + str(primeiro_numero) + " * " + str(segundo_numero) + " = " + str(primeiro_numero*segundo_numero)))
     elif data.find("/")>=0:
       if segundo_numero==0:
         conn.send(str.encode("\nNão é permitido divisão por 0."))
         continue
-      print("\n" + primeiro_numero + " / " + segundo_numero + " = " + str(primeiro_numero/segundo_numero))
-      conn.send(str.encode("\n" + primeiro_numero + " / " + segundo_numero + " = " + str(primeiro_numero/segundo_numero)))
+      print("\n" + str(primeiro_numero) + " / " + str(segundo_numero) + " = " + str(primeiro_numero/segundo_numero))
+      conn.send(str.encode("\n" + str(primeiro_numero) + " / " + str(segundo_numero) + " = " + str(primeiro_numero/segundo_numero)))
 
 conn.close()               # close the connection
