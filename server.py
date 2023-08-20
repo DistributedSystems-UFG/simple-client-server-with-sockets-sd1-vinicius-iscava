@@ -8,7 +8,7 @@ s.listen(1)           #-
 (conn, addr) = s.accept()  # returns new socket and addr. client 
 
 # Serviço para calculadora simples
-conn.send(str.encode("\nCalculadora basica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente ou digite \"exit\" para encerrar."))
+conn.send(str.encode("\nCalculadora básica\n\nUtilize os operadores \"+\", \"-\", \"*\", \"/\" para adicionar, subtrair, multiplicar e dividir respectivamente ou digite \"exit\" para encerrar."))
 
 # Loop para interação entre client e server. Servidor irá parar apenas se o client enviar a mensagem "exit".
 while True:                # forever
@@ -44,7 +44,7 @@ while True:                # forever
                 primeiro_numero = float(primeiro_numero.replace(",", "."))
             except ValueError:
                 print("\nEntrada invalida.")
-                conn.send(str.encode("\nEntrada inválida. Tenten novamente!"))
+                conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
                 continue
       
     try:
@@ -57,7 +57,7 @@ while True:                # forever
                 segundo_numero = float(segundo_numero.replace(",", "."))
             except ValueError:
                 print("\nEntrada invalida.")
-                conn.send(str.encode("\nEntrada invalida. Tente novamente!"))
+                conn.send(str.encode("\nEntrada inválida. Tente novamente!"))
                 continue
               
     print("\nEntrada valida. Processando...")
