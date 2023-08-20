@@ -60,7 +60,7 @@ while True:                # forever
                 conn.send(str.encode("\nEntrada invalida. Tente novamente!"))
                 continue
               
-    print("Entrada valida. Processando...")
+    print("\nEntrada valida. Processando...")
     if data.find("+")>=0:
       print("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero))
       conn.send(str.encode("\n" + str(primeiro_numero) + " + " + str(segundo_numero) + " = " + str(primeiro_numero+segundo_numero)))
