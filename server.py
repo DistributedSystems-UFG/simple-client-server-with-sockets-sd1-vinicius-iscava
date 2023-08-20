@@ -14,13 +14,13 @@ while True:                # forever
   data = conn.recv(1024)   # receive data from client
   if data == "exit": break       # stop if client stopped
   else:
-    if data.find("+">=0):
+    if data.find("+")>=0:
       numeros = data.split('+')
-    elif data.find("-">=0):
+    elif data.find("-")>=0:
       numeros = data.split('-')
-    elif data.find("*">=0):
+    elif data.find("*")>=0:
       numeros = data.split('*')
-    elif data.find("/">=0):
+    elif data.find("/")>=0:
       numeros = data.split('/')
     else:
       print("\nEntrada invalida.")
@@ -56,16 +56,16 @@ while True:                # forever
                 continue
               
     print("Entrada valida. Processando...")
-    if data.find("+">=0):
+    if data.find("+")>=0:
       print("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero))
       conn.send(str.encode("\n" + primeiro_numero + " + " + segundo_numero + " = " + (primeiro_numero+segundo_numero)))
-    elif data.find("-">=0):
+    elif data.find("-")>=0:
       print("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero))
       conn.send(str.encode("\n" + primeiro_numero + " - " + segundo_numero + " = " + (primeiro_numero-segundo_numero)))
-    elif data.find("*">=0):
+    elif data.find("*")>=0:
       print("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero))
       conn.send(str.encode("\n" + primeiro_numero + " * " + segundo_numero + " = " + (primeiro_numero*segundo_numero)))
-    elif data.find("/">=0):
+    elif data.find("/")>=0:
       print("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero))
       conn.send(str.encode("\n" + primeiro_numero + " / " + segundo_numero + " = " + (primeiro_numero/segundo_numero)))
 
