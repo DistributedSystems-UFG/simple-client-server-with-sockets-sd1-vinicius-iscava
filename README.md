@@ -8,3 +8,10 @@ Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste
 Tarefa individual.
 
 Incluir um Readme descritivo do sistema implementado.
+
+ALUNOS:
+VICTOR EDUARDO ISCAVA MOREIRA - 201905514
+VINICIUS MEDEIROS MIRANDA - 201905516
+
+PROJETO:
+Calculadora básica com as operações "+", "-", "*", "/". Para implementar a calculadora foi criado um loop para interação entre client e servidor.
